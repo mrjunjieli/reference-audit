@@ -1,0 +1,4 @@
+interface:
+  display_name: "Reference Audit"
+  short_description: "Verify references, authors, pages, and DOI metadata"
+  default_prompt: "Use $reference-audit to verify every reference in this manuscript, give an authoritative source for every verdict including correct entries, and cite the source for every recommended correction."
