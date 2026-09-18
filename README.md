@@ -8,6 +8,9 @@
 
 ### 功能
 
+- 默认由两个 Agent 独立核查每条文献，主 Agent 按原始证据复核分歧与重要修改；必要时增加裁决 Agent，不靠多数投票判定。
+- 报告披露双重核查覆盖率、未解决项及共用来源的限制；Agent 不可用时明确说明降级情况。
+
 - 逐条核查作者、题名、年份、刊名、卷期、页码、文章号、DOI 和 arXiv 标识符。
 - 优先采用出版社、会议官网及原文证据，并为判定和修改建议提供可追溯链接。
 - 区分疑似虚构、实质性错误、定位信息缺失、格式问题和基本正确。
@@ -44,11 +47,12 @@ SKILL.md                       核查流程及判定规则
 agents/openai.yaml             技能显示信息与默认提示
 references/source-strategy.md  证据来源优先级与检索策略
 references/report-format.md    报告格式、BibTeX 和验证规则
+references/multi-agent-review.md  独立双重核查、分歧裁决与覆盖率规则
 ```
 
 ### 运行条件与范围
 
-需要可用的网页检索或浏览能力。处理文档时还需要相应的 PDF/DOCX 读取工具；验证引用排版时需要目标 BibTeX/BibLaTeX 工具链。此仓库提供工作流指令，不附带这些工具。
+完整的多 Agent 流程需要运行环境支持子 Agent；多个 Agent 仍可能共用错误来源，不能保证完全无误。需要可用的网页检索或浏览能力。处理文档时还需要相应的 PDF/DOCX 读取工具；验证引用排版时需要目标 BibTeX/BibLaTeX 工具链。此仓库提供工作流指令，不附带这些工具。
 
 默认核查书目记录，不自动判断论文正文中的每项论断是否得到所引文献支持。网页不可访问或记录冲突时，应明确说明限制，不把无法确认等同于文献不存在。
 
@@ -57,6 +61,9 @@ references/report-format.md    报告格式、BibTeX 和验证规则
 A Codex skill for verifying the existence and metadata accuracy of academic references. Supports PDF, DOCX, BibTeX, and pasted reference lists.
 
 ### Features
+
+- Two agents independently verify every entry by default; a coordinator rechecks disagreements and consequential changes against primary evidence, with an additional adjudicator when needed. Verdicts are not decided by majority vote.
+- Reports disclose dual-review coverage, unresolved items, and shared-source limitations, with explicit fallback disclosure when agents are unavailable.
 
 - Check every reference's authors, title, year, venue, volume and issue, page range, article number, DOI, and arXiv identifier.
 - Prioritize publisher records, official conference proceedings, and original papers, with traceable links for verdicts and recommended corrections.
@@ -96,10 +103,11 @@ SKILL.md                       Audit workflow and classification rules
 agents/openai.yaml             Skill display information and default prompt
 references/source-strategy.md  Evidence priorities and search strategy
 references/report-format.md    Report format, BibTeX, and validation rules
+references/multi-agent-review.md  Independent review, adjudication, and coverage
 ```
 
 ### Requirements and scope
 
-Web search or browsing capabilities are required. Processing documents also requires suitable PDF/DOCX reading tools; validating bibliography rendering requires the target BibTeX/BibLaTeX toolchain. This repository provides workflow instructions and does not bundle these tools.
+The full multi-agent workflow requires subagent support in the runtime. Multiple agents can still share incorrect sources and do not guarantee correctness. Web search or browsing capabilities are required. Processing documents also requires suitable PDF/DOCX reading tools; validating bibliography rendering requires the target BibTeX/BibLaTeX toolchain. This repository provides workflow instructions and does not bundle these tools.
 
 By default, the skill audits bibliographic records. It does not automatically assess whether every claim in a manuscript is supported by the cited work. When pages are inaccessible or records conflict, the audit should state these limits explicitly; an unconfirmed reference is not evidence that the work does not exist.

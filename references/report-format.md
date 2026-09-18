@@ -9,7 +9,8 @@ Scale the output to the request. A short list can be answered inline; a manuscri
 3. Priority corrections: substantive errors and ambiguous records with direct evidence.
 4. All-entry table with direct evidence for every row, including basically correct entries.
 5. Corrected citations or BibTeX.
-6. Verification limits: inaccessible pages, unconfirmed publication status, and whether citation-to-claim support was outside scope.
+6. Review process: actual agent roles, independent dual-review coverage, resolved disagreements, and unresolved IDs.
+7. Verification limits: inaccessible pages, unconfirmed publication status, and whether citation-to-claim support was outside scope.
 
 Recommended all-entry columns:
 

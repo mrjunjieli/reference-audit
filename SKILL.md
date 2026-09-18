@@ -7,6 +7,10 @@ description: Audit academic reference lists in PDF, DOCX, BibTeX, or pasted text
 
 Verify every reference against traceable evidence and distinguish a fake work from a real work with incorrect or incomplete metadata.
 
+## Default multi-agent review
+
+Use independent subagents by default: two verifiers check every reference separately, and the coordinator reconciles their evidence and rechecks consequential conclusions. Read [references/multi-agent-review.md](references/multi-agent-review.md) before assigning work; it defines independent inputs, coverage, adjudication, and honest fallback when agents are unavailable. Preserve all verification and citation rules below.
+
 ## Establish the scope
 
 - Identify the complete reference range and the requested citation style. Preserve the user's chosen BibTeX entry type, including a uniform `@misc` convention, unless they request conversion.
@@ -71,4 +75,4 @@ Read [references/report-format.md](references/report-format.md) when producing a
 
 ## Quality bar
 
-The audit is complete only when the reference count matches the source, every entry has a verdict and at least one direct evidence link, every recommended correction is traceable to a named source and its supported fields, every preprint has a recorded formal-publication check, evidence conflicts are disclosed, and totals reconcile with the per-entry table. State access limits precisely; a blocked publisher page does not invalidate corroborating publisher DOI metadata or an official proceedings record.
+A full multi-agent audit also requires the dual-review coverage and reconciliation checks in `references/multi-agent-review.md`; disclose any reduced coverage. The audit is complete only when the reference count matches the source, every entry has a verdict and at least one direct evidence link, every recommended correction is traceable to a named source and its supported fields, every preprint has a recorded formal-publication check, evidence conflicts are disclosed, and totals reconcile with the per-entry table. State access limits precisely; a blocked publisher page does not invalidate corroborating publisher DOI metadata or an official proceedings record.
